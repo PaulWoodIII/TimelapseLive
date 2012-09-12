@@ -412,7 +412,7 @@ bail:
 			}
 			else {
                 // trivial simple JPEG case
-                NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                __block NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 CFDictionaryRef attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, 
                                                                             imageDataSampleBuffer, 
                                                                             kCMAttachmentMode_ShouldPropagate);
@@ -422,11 +422,23 @@ bail:
                         [self displayErrorOnMainQueue:error withMessage:@"Save to camera roll failed"];
                     }
                 }];
+                if ([self isLoggedIn]){
+                    NSString *comment = [NSString stringWithFormat:@"I'm riding my bike and this is what I saw at %@", [NSDate date]];
+                    float lng = [[PWLocationManager sharedInstance] manager].location.coordinate.longitude;
+                    float lat = [[PWLocationManager sharedInstance] manager].location.coordinate.latitude;
+                    [[WKOAuth2Client sharedInstance] uploadStatusWithComment:comment withImageData:jpegData withLat:lat withLng:lng
+                                                                 withSuccess:^(WKStatus *status) {
+                                                                     NSLog(@"Awesome Sauce!");
+                                                                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                                     NSLog(@"Failure %@", error);
+                                                                 }];
+                }
                 
                 if (attachments)
                     CFRelease(attachments);
                 [library release];
                 [self performSelector:@selector(teardownAVCapture) withObject:nil afterDelay:0.0];
+
 			}
 		}
 	 ];
