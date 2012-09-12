@@ -1,0 +1,3 @@
+[submodule "Vendor/WeiboKit"]
+	path = Vendor/WeiboKit
+	url = https://github.com/PaulWoodIII/WeiboKit.git

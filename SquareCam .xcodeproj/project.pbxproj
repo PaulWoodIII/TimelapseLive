@@ -26,7 +26,33 @@
 		2BA4851A13F1EC39000BABB3 /* ApplesReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4851913F1EC39000BABB3 /* ApplesReadMe.md */; };
 		DAC36323160085340064229B /* PWLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC36322160085340064229B /* PWLocationManager.m */; };
 		DAC36325160085DE0064229B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC36324160085DE0064229B /* CoreLocation.framework */; };
+		DAC36357160094180064229B /* libWeiboKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC36352160093EC0064229B /* libWeiboKit.a */; };
+		DAC36359160096CC0064229B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC36358160096CC0064229B /* Security.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAC36351160093EC0064229B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC3633F160093EC0064229B /* WeiboKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DACCEE6815DA07ED00A8BD52;
+			remoteInfo = WeiboKit;
+		};
+		DAC36353160093EC0064229B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC3633F160093EC0064229B /* WeiboKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DA8EE9F815DA0C6C00F5F0BC;
+			remoteInfo = WeiboKitmac;
+		};
+		DAC36355160094090064229B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAC3633F160093EC0064229B /* WeiboKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DACCEE6715DA07ED00A8BD52;
+			remoteInfo = WeiboKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1B3C9A26139D4E0F0042676B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -52,6 +78,8 @@
 		DAC36321160085340064229B /* PWLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PWLocationManager.h; path = SquareCam/PWLocationManager.h; sourceTree = SOURCE_ROOT; };
 		DAC36322160085340064229B /* PWLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PWLocationManager.m; path = SquareCam/PWLocationManager.m; sourceTree = SOURCE_ROOT; };
 		DAC36324160085DE0064229B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DAC3633F160093EC0064229B /* WeiboKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = WeiboKit.xcodeproj; sourceTree = "<group>"; };
+		DAC36358160096CC0064229B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC36359160096CC0064229B /* Security.framework in Frameworks */,
+				DAC36357160094180064229B /* libWeiboKit.a in Frameworks */,
 				DAC36325160085DE0064229B /* CoreLocation.framework in Frameworks */,
 				1B3C9A34139D4EAA0042676B /* ImageIO.framework in Frameworks */,
 				1B3C9A32139D4E740042676B /* QuartzCore.framework in Frameworks */,
@@ -79,6 +109,7 @@
 		1B867FCD139D4AD300AD6B47 = {
 			isa = PBXGroup;
 			children = (
+				DAC36326160093EC0064229B /* Vendor */,
 				2BA4851913F1EC39000BABB3 /* ApplesReadMe.md */,
 				1B867FE2139D4AD300AD6B47 /* SquareCam */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
@@ -97,6 +128,7 @@
 		1B867FDB139D4AD300AD6B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DAC36358160096CC0064229B /* Security.framework */,
 				DAC36324160085DE0064229B /* CoreLocation.framework */,
 				1B3C9A33139D4EAA0042676B /* ImageIO.framework */,
 				1B3C9A31139D4E740042676B /* QuartzCore.framework */,
@@ -138,6 +170,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DAC36326160093EC0064229B /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				DAC36327160093EC0064229B /* WeiboKit */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		DAC36327160093EC0064229B /* WeiboKit */ = {
+			isa = PBXGroup;
+			children = (
+				DAC3633F160093EC0064229B /* WeiboKit.xcodeproj */,
+			);
+			path = WeiboKit;
+			sourceTree = "<group>";
+		};
+		DAC36340160093EC0064229B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAC36352160093EC0064229B /* libWeiboKit.a */,
+				DAC36354160093EC0064229B /* WeiboKitmac.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +209,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DAC36356160094090064229B /* PBXTargetDependency */,
 			);
 			name = SquareCam;
 			productName = StacheCam;
@@ -176,12 +234,35 @@
 			mainGroup = 1B867FCD139D4AD300AD6B47;
 			productRefGroup = 1B867FD9139D4AD300AD6B47 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DAC36340160093EC0064229B /* Products */;
+					ProjectRef = DAC3633F160093EC0064229B /* WeiboKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1B867FD7139D4AD300AD6B47 /* SquareCam */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DAC36352160093EC0064229B /* libWeiboKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libWeiboKit.a;
+			remoteRef = DAC36351160093EC0064229B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DAC36354160093EC0064229B /* WeiboKitmac.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WeiboKitmac.framework;
+			remoteRef = DAC36353160093EC0064229B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1B867FD6139D4AD300AD6B47 /* Resources */ = {
@@ -210,6 +291,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAC36356160094090064229B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WeiboKit;
+			targetProxy = DAC36355160094090064229B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1B867FEE139D4AD300AD6B47 /* MainStoryboard_iPhone.storyboard */ = {
@@ -300,6 +389,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
 				INFOPLIST_FILE = SquareCam/Info.plist;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = SquareCam;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -314,6 +407,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
 				INFOPLIST_FILE = SquareCam/Info.plist;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = SquareCam;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
