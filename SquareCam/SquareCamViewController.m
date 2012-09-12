@@ -49,6 +49,7 @@
 #import <ImageIO/ImageIO.h>
 #import <AssertMacros.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "PWLocationManager.h"
 
 #pragma mark-
 
@@ -156,6 +157,22 @@ bail:
 @end
 
 @implementation SquareCamViewController
+
+#pragma mark - Location
+
+- (void)locationUpdated:(NSNotification *)note{
+    float lng = [[PWLocationManager sharedInstance] manager].location.coordinate.longitude;
+    float lat = [[PWLocationManager sharedInstance] manager].location.coordinate.latitude;
+    NSString *title = [NSString stringWithFormat:@"latlng=%f,%f", lat, lng];
+    locationLabel.text = title;
+    [self performSelector:@selector(startUpdateingLocation) withObject:nil afterDelay:5.0];
+}
+
+- (void)startUpdateingLocation{
+    [[PWLocationManager sharedInstance] pingLocation];
+}
+
+#pragma mark - Image Capture
 
 - (void)setupAVCapture
 {
@@ -424,6 +441,8 @@ bail:
 {
     [super viewDidLoad];
     looping = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationUpdated:) name:kLocationManagerUpdateNotificationName object:nil];
+    [self startUpdateingLocation];
 }
 
 - (void)viewDidUnload

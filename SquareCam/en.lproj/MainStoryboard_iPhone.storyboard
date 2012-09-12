@@ -30,10 +30,18 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Label" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="l4k-VH-vmP">
+                                <rect key="frame" x="20" y="220" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="locationLabel" destination="l4k-VH-vmP" id="w65-Af-eno"/>
                         <outlet property="previewView" destination="12" id="13"/>
                     </connections>
                 </viewController>
@@ -46,7 +54,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SquareCamViewController.h"/>
             <relationships>
                 <relationship kind="action" name="startLooping:"/>
-                <relationship kind="outlet" name="camerasControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="previewView" candidateClass="UIView"/>
             </relationships>
         </class>

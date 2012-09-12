@@ -24,6 +24,8 @@
 		2BA4851113F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4850E13F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard */; };
 		2BA4851713F1E6DB000BABB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4851313F1E6DB000BABB3 /* main.m */; };
 		2BA4851A13F1EC39000BABB3 /* ApplesReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BA4851913F1EC39000BABB3 /* ApplesReadMe.md */; };
+		DAC36323160085340064229B /* PWLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC36322160085340064229B /* PWLocationManager.m */; };
+		DAC36325160085DE0064229B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC36324160085DE0064229B /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,9 @@
 		2BA4851313F1E6DB000BABB3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SquareCam/main.m; sourceTree = SOURCE_ROOT; };
 		2BA4851413F1E6DB000BABB3 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = SquareCam/Prefix.pch; sourceTree = SOURCE_ROOT; };
 		2BA4851913F1EC39000BABB3 /* ApplesReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ApplesReadMe.md; sourceTree = "<group>"; };
+		DAC36321160085340064229B /* PWLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PWLocationManager.h; path = SquareCam/PWLocationManager.h; sourceTree = SOURCE_ROOT; };
+		DAC36322160085340064229B /* PWLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PWLocationManager.m; path = SquareCam/PWLocationManager.m; sourceTree = SOURCE_ROOT; };
+		DAC36324160085DE0064229B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC36325160085DE0064229B /* CoreLocation.framework in Frameworks */,
 				1B3C9A34139D4EAA0042676B /* ImageIO.framework in Frameworks */,
 				1B3C9A32139D4E740042676B /* QuartzCore.framework in Frameworks */,
 				1B3C9A30139D4E5F0042676B /* CoreMedia.framework in Frameworks */,
@@ -91,6 +97,7 @@
 		1B867FDB139D4AD300AD6B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DAC36324160085DE0064229B /* CoreLocation.framework */,
 				1B3C9A33139D4EAA0042676B /* ImageIO.framework */,
 				1B3C9A31139D4E740042676B /* QuartzCore.framework */,
 				1B3C9A2F139D4E5F0042676B /* CoreMedia.framework */,
@@ -113,6 +120,8 @@
 				2BA4850513F1E6AA000BABB3 /* SquareCamViewController.h */,
 				2BA4850613F1E6AA000BABB3 /* SquareCamViewController.m */,
 				2BA4850E13F1E6CC000BABB3 /* MainStoryboard_iPhone.storyboard */,
+				DAC36321160085340064229B /* PWLocationManager.h */,
+				DAC36322160085340064229B /* PWLocationManager.m */,
 				1B867FE3139D4AD300AD6B47 /* Supporting Files */,
 			);
 			name = SquareCam;
@@ -196,6 +205,7 @@
 				2BA4850713F1E6AA000BABB3 /* SquareCamAppDelegate.m in Sources */,
 				2BA4850813F1E6AA000BABB3 /* SquareCamViewController.m in Sources */,
 				2BA4851713F1E6DB000BABB3 /* main.m in Sources */,
+				DAC36323160085340064229B /* PWLocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
