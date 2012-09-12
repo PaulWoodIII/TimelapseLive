@@ -52,6 +52,7 @@
 {
 	IBOutlet UIView *previewView;
     IBOutlet UILabel *locationLabel;
+    IBOutlet UIButton *weiboAuthButton;
 	AVCaptureVideoPreviewLayer *previewLayer;
 	AVCaptureVideoDataOutput *videoDataOutput;
 	BOOL looping;
@@ -61,5 +62,6 @@
 }
 
 - (IBAction)startLooping:(id)sender;
+- (IBAction)authToggled:(id)sender;
 
 @end

@@ -109,9 +109,9 @@
 		1B867FCD139D4AD300AD6B47 = {
 			isa = PBXGroup;
 			children = (
-				DAC36326160093EC0064229B /* Vendor */,
 				2BA4851913F1EC39000BABB3 /* ApplesReadMe.md */,
 				1B867FE2139D4AD300AD6B47 /* SquareCam */,
+				DAC36326160093EC0064229B /* Vendor */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
 				1B867FD9139D4AD300AD6B47 /* Products */,
 			);
@@ -388,6 +388,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Vendor/WeiboKit\"/**";
 				INFOPLIST_FILE = SquareCam/Info.plist;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -406,6 +407,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SquareCam/Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Vendor/WeiboKit\"/**";
 				INFOPLIST_FILE = SquareCam/Info.plist;
 				OTHER_LDFLAGS = (
 					"-ObjC",

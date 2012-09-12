@@ -49,6 +49,11 @@
 #import <ImageIO/ImageIO.h>
 #import <AssertMacros.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <WeiboKit/WKOAuth2Client.h>
+#import <WeiboKit/WKStatus.h>
+#import <WeiboKit/WKOAuthUser.h>
+#import "SSKeychain.h"
+
 #import "PWLocationManager.h"
 
 #pragma mark-
@@ -157,6 +162,69 @@ bail:
 @end
 
 @implementation SquareCamViewController
+
+- (void)setupUI{
+    if ([self isLoggedIn]) {
+        [weiboAuthButton setTitle:@"Loggout" forState:UIControlStateNormal];
+    }
+    else{
+        [weiboAuthButton setTitle:@"Login" forState:UIControlStateNormal];
+    }
+}
+
+#pragma mark -
+#pragma mark Auth
+
+- (IBAction)authToggled:(id)sender{
+    if ([self isLoggedIn]) {
+        [self logout];
+    }
+    else{
+        [self login];
+    }
+}
+
+- (BOOL)isLoggedIn{
+    if (nil == [WKOAuthUser currentUser] || [[WKOAuthUser currentUser].accessToken isEqualToString:@""]) {
+        return NO;
+    }
+    else{
+        return YES;
+    }
+}
+
+
+- (void)login{
+    [[WKOAuth2Client sharedInstance] startAuthorization];
+}
+
+- (void)logout{
+    WKOAuthUser *user = [WKOAuthUser alloc];
+    user.user_id = nil;
+    user.accessToken = @"";
+    [WKOAuthUser setCurrentUser:user];
+    [self setupUI];
+}
+
+
+- (void)changedCurrentUser:(NSNotification *)note{
+    [self setupUI];
+}
+
+- (void)authorizationSuccessful:(NSNotification *)note{
+    [self setupUI];
+}
+
+- (void)authorizationFailure:(NSNotification *)note{
+    [self setupUI];
+}
+
+- (void)registerForNotifications{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationUpdated:) name:kLocationManagerUpdateNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changedCurrentUser:) name:kWKCurrentUserChangedNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authorizationSuccessful:) name:kWKAuthorizationSuccessfullNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authorizationFailure:) name:kWKAuthorizationFailureNotificationName object:nil];
+}
 
 #pragma mark - Location
 
@@ -441,8 +509,9 @@ bail:
 {
     [super viewDidLoad];
     looping = NO;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationUpdated:) name:kLocationManagerUpdateNotificationName object:nil];
+    [self registerForNotifications];
     [self startUpdateingLocation];
+    [self setupUI];
 }
 
 - (void)viewDidUnload
